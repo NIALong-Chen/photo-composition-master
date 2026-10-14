@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cameraRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp">
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:text="正在启动相机…"
+            android:textColor="#FFFFFFFF"
+            android:textSize="15sp"
+            android:minLines="2"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:accessibilityLiveRegion="polite" />
+        <Button
+            android:id="@+id/gridButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="网格：开" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:scaleType="fillCenter" />
+        <com.vinchen.photocomposition.GridOverlayView
+            android:id="@+id/gridOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+        <com.vinchen.photocomposition.FaceOverlayView
+            android:id="@+id/faceOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/permissionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="授予相机权限"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+        <Button
+            android:id="@+id/lastPhotoButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="查看照片" />
+        <ImageButton
+            android:id="@+id/shutterButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/shutter_button"
+            android:contentDescription="拍照"
+            android:enabled="false" />
+        <Button
+            android:id="@+id/guideButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="指导：开"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>
